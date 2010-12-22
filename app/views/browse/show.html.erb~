@@ -1,0 +1,56 @@
+<% content_for(:head) do %>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<link href="stylesheets/cloud-zoom.css" rel="stylesheet" type="text/css" />
+		<%= include_tiny_mce_if_needed %>
+		<script type="text/JavaScript" src="/javascripts/cloud-zoom.1.0.2.min.js"></script>
+<% end %>
+<p>
+  <b>Title:</b>
+  <big style="font-size: 24px"><%=h @item.title %></big>
+</p>
+	<%#= content_tag(:div, image_tag( @item.photo.url(:medium)), :class => "left") %>
+	<%= link_to(image_tag(@item.photo.url(:medium), :title => "#{@item.title}"), @item.photo.url(:original), :class => 'cloud-zoom', :id => 'zoom1', :rel => "position: 'right', tint: '#540000', zoomWidth:'300', zoomHeight:'150'") %>
+	<div class="clear" style="clear: both">
+<p>
+  <b>Type:</b>
+  <%=h @item.category %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @item.short_description %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%=h @item.weight %>
+</p>
+
+<p>
+  <b>Dimension:</b>
+  <%=h @item.dimension %>
+</p>
+
+<p>
+		<strong>
+			<%= add_item_link("add to shopping cart", @item.id) -%>
+		</strong>		
+</p>	
+
+
+<p>
+  <b>Price:</b>
+  <%=h @item.price %>
+</p>
+
+<p>
+  <b>Style slightly vary:</b>
+  <%=h @item.style_slightly_vary %>
+</p>
+
+<p>
+  <b>Native style:</b>
+  <%=h @item.native_style %>
+</p>
+
+</div>

@@ -1,0 +1,46 @@
+<p>
+  <b>Title:</b>
+  <%=h @item.title %>
+</p>
+ 	<b>Photo:</b>
+			<%= content_tag(:div, image_tag(@item.photo.url(:large))) %>
+			<%= content_tag(:div, image_tag( @item.photo.url(:medium))) %>
+			<%= content_tag(:div, image_tag( @item.photo.url(:small))) %>
+<p>
+  <b>Type:</b>
+  <%=h @item.category %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%=h @item.weight %>
+</p>
+
+<p>
+  <b>Dimension:</b>
+  <%=h @item.dimension %>
+</p>
+
+<p>
+  <b>Short description:</b>
+  <%=h @item.short_description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @item.price %>
+</p>
+
+<p>
+  <b>Style slightly vary:</b>
+  <%=h @item.style_slightly_vary %>
+</p>
+
+<p>
+  <b>Native style:</b>
+  <%=h @item.native_style %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
