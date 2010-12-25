@@ -20,7 +20,7 @@ development:
   reconnect: false
   database: akamados_lakotadev
   pool: 5
-  username: akamados_voodoo
+  username: root
   password: DooM45
   socket: /tmp/mysql.sock
 
@@ -33,7 +33,7 @@ test:
   reconnect: false
   database: lakota_test
   pool: 5
-  username: akamados_voodoo
+  username: root
   password: DooM45
   socket: /tmp/mysql.sock
 
@@ -43,6 +43,6 @@ production:
   reconnect: false
   database: lakota_production
   pool: 5
-  username: akamados_voodoo
+  username: root
   password: DooM45
   socket: /tmp/mysql.sock
