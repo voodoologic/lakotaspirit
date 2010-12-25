@@ -1,5 +1,0 @@
-<h1>New item</h1>
-
-<%= render :partial => "items_forms" %>
-
-<%= link_to 'Back', items_path %>

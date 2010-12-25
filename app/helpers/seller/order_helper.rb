@@ -1,2 +1,0 @@
-module Seller::OrderHelper
-end
