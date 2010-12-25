@@ -1,0 +1,29 @@
+<h2>Displaying User</h2>
+<p>
+  <b>User name:</b>
+  <%=h @user.username %>
+</p>
+<% if @user.photo? %>
+	<%= image_tag @user.photo.url(:medium) %>
+<% else %>
+<p>	No image loaded yet. </p>
+<% end %>
+<p>
+  <b>Email:</b>
+  <%=h @user.email %>
+</p>
+<p>
+  <b>Full Name:</b>
+  <%=h @user.full_name %>
+</p>
+<p>
+  <b>User Level</b>
+  <%=h @user.user_level %>
+</p>
+<p>
+	<b>Seller biography:</b>
+	<%=h @user.bio %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

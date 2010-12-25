@@ -1,0 +1,270 @@
+body {
+ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ padding: 5px; background-color: #654321;
+}
+#header {
+	width: 80%;
+	height: 200px;
+	margin: 10px auto;
+	background-color: #00FF85;
+	padding: 0px 60px;
+	background-image: url(/images/LakotaSpirit.png);
+	background: url(/images/lakotaspirit-banner.png) top -60px right -150px no-repeat;
+    
+	}
+.center{
+margin:auto;
+}
+.threed{
+ /* basic */
+ background-color: #fff;
+ margin: 10px auto;
+ width: 80%;
+ padding: 20px 60px;
+ text-align: left;
+ /* border-radius */
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ border-radius: 5px;
+ /* box-shadow */
+ -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+ -moz-box-shadow: rgba(0,0,0,0.2) 4px 3px 3px;
+ box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+}
+
+#flash {
+	background: #453478;
+	margin: auto;
+	color:white;
+	text-align: center;
+	width: 50%;
+	position: relative;
+	top: -20px;
+}
+#header h1 {
+    padding: 20px 10px;
+    font-size: 36px;
+    margin: 0;
+    color: white;
+    font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top: 60px;
+}
+#header ul {
+	vertical-align: text-bottom;
+	bottom: 0px;
+}
+#user_nav{
+	float:right;
+	font-size: 1em;
+}
+#footer {
+    background-color: #FFF;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    clear:both;
+    border-top: 2px solid #333;
+    text-align: center;
+    width: 80%;
+    margin: 0px auto;
+}
+#footer p, #footer a {
+    text-align: center;
+    font-size: 1em;
+    color: black;
+    font-weight:bold;
+    margin: 0;
+    padding: 2px;
+}
+#content a:link {color: #BE4621;}
+#content a:visited {color: #215bbf;}
+/* items */
+.item_container{
+height: 300px;
+width: 200px;
+float: left;
+padding: 20px;
+margin: 15px;
+background-color: #EBD29D;
+/* border-radius */
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ border-radius: 5px;
+ /* box-shadow */
+ -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+ -moz-box-shadow: rgba(0,0,0,0.2) 4px 3px 3px;
+ box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+}
+.image_box{
+background-color: #DCC89D;
+padding: 6px;
+margin: auto;
+border: dotted 1px grey;
+width: 180px;
+}
+/* commenting out the centering
+.image_box img{
+margin: auto;
+}
+*/
+/* Navigation Bar */
+#navbar {
+    position:relative;
+    top: 40px;
+    vertical-align: text-bottom;
+    
+    
+}
+#navbar ul {
+    padding: 0;
+    margin: 0;
+    background-color: #458;
+    color: White;
+    float: left;
+    left: 0px;
+    /*width: 100%;*/
+    list-style: none;
+    font-weight: bold;
+    font-size: 13px;
+    height: 100%;
+    /*border-bottom: 2px solid #333;*/
+}
+#navbar ul li { 
+    display: inline;
+    color: White;
+    float: left;
+    border-right: 1px solid #333;
+	 border-left: 1px solid #333;
+	 magin: 0px 5px;    
+    font-family: arial, helvetica, sans-serif;
+    height: 100%;
+}
+#navbar ul li a {
+    padding: 0.2em 0.7em;
+    background-color: #458; 
+    color: White;
+    text-decoration: none;
+    float:left;
+}
+#navbar ul li a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* shopping_navbar CSS */
+#shopping ul {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    float: left;
+    left: 0px;
+    /*width: 100%;*/
+    list-style: none;
+    font-weight: bold;
+    font-size: 13px;
+    height: 100%;
+    /*border-bottom: 2px solid #333;*/
+}
+#shopping ul li { 
+    display: inline;
+    color: red;
+    float: left;
+    border-right: 1px solid #333;
+	 border-left: 1px solid #333;
+	 magin: 0px 5px;    
+    font-family: arial, helvetica, sans-serif;
+    height: 100%;
+}
+#shopping ul li a {
+    padding: 0.2em 0.7em;
+    background-color: white; 
+    color: red;
+    text-decoration: none;
+    float:left;
+}
+#shopping ul li a:hover {
+    background-color: #333;
+    color: #fff;
+} 
+table {
+/* border-radius */
+/* box-shadow */
+ -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+ -moz-box-shadow: rgba(0,0,0,0.2) 4px 3px 3px;
+ box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+ background-color: #E7FFFF;
+}
+th
+{
+	padding: 8px;
+	font-weight: normal;
+	font-size: 1em;
+	color: white;
+	background: #48607c;
+	/* border-radius */
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ border-radius: 5px;
+}
+tbody tr td
+{
+	padding: 8px;
+	<!--background: #e8edff;-->
+	background: #347867;
+	font-size: .8em;
+	border-top: 1px solid #fff;
+	color: #669;
+	 background-color: #E7FFFF;
+
+}
+tbody tr:hover td
+{
+	background: #98b3ce;
+}
+/* this is the floats */
+.right{
+	float: right;
+}
+.left{
+	float: left;
+	
+	
+}
+
+/* shopping cart CSS */
+#shopping_cart {
+	border-left: 3px solid #666;
+	background: #bbb;
+	position: relative;
+	width: 250px;
+	height: 100%;
+	padding: 0px 10px;
+	float: right;
+	z-index: 1;
+	/* border-radius */
+ 	-webkit-border-radius: 5px;
+ 	-moz-border-radius: 5px;
+	border-radius: 5px;
+	 /* box-shadow */
+ 	-webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+ 	-moz-box-shadow: rgba(0,0,0,0.2) 4px 3px 3px;
+	box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+}
+
+#shopping_cart ul, li
+ {
+	listing-style: none;
+	margin: 0;
+	padding: 0;
+}
+#shopping_cart h3 {
+	padding-top: 1em;
+}
+#cart_notice { 
+	border: 2px solid #58A986;
+	background: #B2FFD3;
+	padding: 3px;
+	position: absolute;
+	top: 0; 
+	left: 10px;
+}
