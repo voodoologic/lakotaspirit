@@ -1,0 +1,6 @@
+module AuthorizedHelper
+	def authorized?(access_level_required)
+		unless @current_user.user_level > access_level_required
+		return true
+	end
+end

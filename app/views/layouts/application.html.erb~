@@ -13,7 +13,7 @@
   </head>
   <body>
 		<div id='header' class="threed">
-				<h1><big><%= link_to "Lakota Spirit", root_path, :style => "float: left"%></big></h1>	
+				<h1><big><%= link_to "Lakota Spirit", root_path %></big></h1>	
 				<!--<img src="/images/lakotaspirit-banner.png" style="float:right; z-index:-1"/>-->
 		<div id="navbar"  >
 					<ul>
@@ -47,6 +47,7 @@
 				<%= flash[:notice] %>
 			</h3>
 			<%= debug params %> 
+			<%= debug @current_user %>
 			<%= if @current_user then debug @current_user.username else "<code>no user logged in</code>" end%>
 				<% if @cart.cart_items %>
 				<div id="shopping_cart">
