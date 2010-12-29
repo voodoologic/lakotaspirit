@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 #require 'restful_authentication'
 
-	helper_method :current_user, :authorization
+	helper_method :current_user, :authorized
 	before_filter :get_pages_for_tabs, :initialize_cart, :shopping_navbar
 	
 	

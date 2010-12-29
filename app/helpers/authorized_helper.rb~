@@ -1,6 +1,10 @@
 module AuthorizedHelper
-	def authorized?(access_level_required)
-		unless @current_user.user_level > access_level_required
-		return true
+	def authorized?
+		if @current_user && @current_user.user_level >= required_access_level
+			return true
+		end
+	end
+	def required_access_level
+		:yield 	
 	end
 end

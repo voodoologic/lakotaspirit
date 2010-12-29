@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 #require 'restful_authentication'
 
-	helper_method :current_user, :authorization_level
+	helper_method :current_user, :authorized?
 	before_filter :get_pages_for_tabs, :initialize_cart, :shopping_navbar
 	
 	
@@ -24,11 +24,6 @@ class ApplicationController < ActionController::Base
 		@current_user = current_user_session && current_user_session.record
 	end
 	
-	def authorization_level(access_level)
-		if current_user && current_user.user_level >= access_level
-		return true
-		end
-	end
 	def require_user
     unless current_user
       store_location

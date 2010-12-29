@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   # GET /items
   # GET /items.xml
-  before_filter :require_user
+  before_filter :require_user, :authorized?
+  ENV = 
   def index
     @items = Item.find_all_by_user_id(@current_user.id)
 

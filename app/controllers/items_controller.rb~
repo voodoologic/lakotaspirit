@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   # GET /items
   # GET /items.xml
-  before_filter :require_user
+  before_filter :require_user, :authorized?
   def index
-    @items = Item.find_all_by_id(@current_user.id)
+    @items = Item.find_all_by_user_id(@current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
