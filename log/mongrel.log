@@ -340,3 +340,14 @@ Run `rake gems:install` to install the missing gems.
 ** Mongrel 1.1.5 available at 0.0.0.0:12016
 ** Writing PID file to log/mongrel.pid
 ** TERM signal received.
+** Daemonized, any open files are closed.  Look at log/mongrel.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:12016
+** Starting Rails with development environment...
+config.gem: Unpacked gem authlogic-2.1.5 in vendor/gems has a mismatched specification file. Run 'rake gems:refresh_specs' to fix this.
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:12016
+** Writing PID file to log/mongrel.pid
+** TERM signal received.
