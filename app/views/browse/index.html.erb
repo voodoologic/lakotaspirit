@@ -1,0 +1,14 @@
+<% content_for(:head) do %>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<link href="stylesheets/cloud-zoom.css" rel="stylesheet" type="text/css" />
+		<%= include_tiny_mce_if_needed %>
+		<script type="text/JavaScript" src="javascripts/cloud-zoom.1.0.2.min.js"></script>
+<% end %>
+<p>While the site is under construction check out some of the items that will be for sale.</p>
+<p>move your mouse over any of the images to get a zoomed in view</p>
+<br/>
+<br/>
+<br/>
+<br/>
+<%= will_paginate @items %>
+<%= render :partial => "jewelry" %>

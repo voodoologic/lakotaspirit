@@ -1,0 +1,5 @@
+#this file is no longer needed and was a partial inside of a partial which was breaking my loop
+<%= link_to item.item.title, :action => "show", :controller => "browse", :id => item.item.id %>
+<%= pluralize(item.amount, "pc", "pcs") %>, 
+$<%= sprintf("%0.2f", item.price * item.amount ) %>
+(<%= remove_item_link("-", item.item )%>)
