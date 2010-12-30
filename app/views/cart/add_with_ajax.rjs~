@@ -1,3 +1,0 @@
-page.replace_html "shopping_cart", :partial => "cart"
-page.visual_effect :highlight, "cart_item_#{@jewelry.item.id}", :duration => 3
-page.visual_effect :fade, 'cart_notice', :duration => 3
