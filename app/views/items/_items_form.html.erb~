@@ -48,7 +48,7 @@
   		<%= f.text_field :quantity %>
   </p>
   <p>
-    <%= f.label :native_style %><br />
+    <b><p>One of a kind?</p></b><br />
     <%= f.check_box :native_style %>
   </p>
   <p>

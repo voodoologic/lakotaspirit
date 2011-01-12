@@ -5,13 +5,34 @@ body {
 #header {
 	width: 80%;
 	height: 200px;
-	margin: 10px auto;
+	margin: 0px auto;
 	background-color: #00FF85;
 	padding: 0px 60px;
-	/*background-image: url(/images/LakotaSpirit.png);*/
+	background-image: url(/images/LakotaSpirit.png);
 	background: url(/images/lakotaspirit-banner.png) top -60px right -150px no-repeat;
     
 	}
+#header h1 {
+   font-size: 78px;
+   margin: 0px;
+   color: white;
+   font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top: 60px;
+	text-shadow: 2px 2px 2px #000;
+	
+}
+
+#header h1 a:link {color: #f00003;}
+#header h1 a:visited {
+	color: #f0003; 
+	text-decoration: none;
+}
+#header h2 {
+	text-shadow: 2px 2px 2px #000000;
+	color: red;
+}
+
 .center{
 margin:auto;
 }
@@ -40,15 +61,6 @@ margin:auto;
 	width: 50%;
 	position: relative;
 	top: -20px;
-}
-#header h1 {
-    padding: 20px 10px;
-    font-size: 36px;
-    margin: 0;
-    color: white;
-    font-weight: bold;
-	font-family: Arial, Helvetica, sans-serif;
-	padding-top: 60px;
 }
 #header ul {
 	vertical-align: text-bottom;
@@ -109,16 +121,16 @@ margin: auto;
 */
 /* Navigation Bar */
 #navbar {
-    position:relative;
-    top: 40px;
+    top: 0px;
     vertical-align: text-bottom;
+    margin: auto;
     
     
 }
 #navbar ul {
     padding: 0;
     margin: 0;
-    background-color: #458;
+    background-color: #454545;
     color: White;
     float: left;
     left: 0px;

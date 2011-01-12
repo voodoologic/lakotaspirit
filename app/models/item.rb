@@ -13,6 +13,11 @@ def self.search(search, page)
            :conditions => ['title like ?', "%#{search}%"],
            :order => 'id'
 end
+def self.paginate_category(page)
+	paginate :per_page => 6,
+				:page=> page,
+				:order => 'id'
+end
 belongs_to :user
 has_many :cart_items
 has_many :carts, :through => :cart_items
