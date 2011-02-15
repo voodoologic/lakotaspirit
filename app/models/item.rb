@@ -1,4 +1,7 @@
 class Item < ActiveRecord::Base
+	cattr_reader :per_page
+  	@@per_page = 10
+
 require 'paperclip'
 validates_presence_of :price
 validates_presence_of :title

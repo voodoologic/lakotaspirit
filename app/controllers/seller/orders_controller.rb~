@@ -1,10 +1,15 @@
-class Admin::ItemsController < ApplicationController
-  # GET /items
-  # GET /items.xml
-before_filter :require_user
-#authorization level needs to be higher here.
+class Seller::OrdersController < ApplicationController
+
+	before_filter :require_user
   def index
-    @items = Item.all()
+  #if then statement for user goes here.  Based on order_items -- worst comment evah
+    @orders = Order.find_all_by_user_id(@current_user.id)
+  	 #named scopes for filering order items  	
+  	@page_title = "Listing #{@status}"
+  	
+  end
+  def index
+    @items = Item.find_all_by_user_id(@current_user.id)
   end
 
   # GET /items/1
@@ -72,3 +77,4 @@ before_filter :require_user
     end
   end
 end
+

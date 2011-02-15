@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       format.xml  { render :xml => @user }
     end
     elsif authorization_level(3)
-    @user = User.find_all_by_id(3)
+    @user = User.find_all_by_id(@current_user.id)
     else 
     	flash[:notice] = "You do not have privilages to access that page,bitch"
 		redirect_to root_url

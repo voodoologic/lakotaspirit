@@ -10,7 +10,22 @@ class ApplicationController < ActionController::Base
 
 	helper_method :current_user, :authorization_level
 	before_filter :get_pages_for_tabs, :initialize_cart, :shopping_navbar
-	
+	def require_user(auth_level)
+    unless current_user && authorization_level(auth_level)
+      store_location
+      flash[:notice] = "You must be logged in to access this page"
+      redirect_to new_user_session_url
+      return false
+    end
+  end 
+	def authorization_level(auth_level)
+		if @current_user && @current_user.user_level >= auth_level
+		return true
+		else
+		flash[:notice] = "I'm sorry, but you do not have authorization to view that page"
+      redirect_to new_user_session_url
+		end
+	end
 	
 	private
 	
@@ -24,19 +39,8 @@ class ApplicationController < ActionController::Base
 		@current_user = current_user_session && current_user_session.record
 	end
 	
-	def authorization_level(access_level)
-		if current_user && current_user.user_level >= access_level
-		return true
-		end
-	end
-	def require_user
-    unless current_user
-      store_location
-      flash[:notice] = "You must be logged in to access this page"
-      redirect_to new_user_session_url
-      return false
-    end
-  end 
+	
+
   def store_location
   	session[:return_to] =
  	 if request.get?
@@ -54,7 +58,7 @@ class ApplicationController < ActionController::Base
   end
   #this is for generating the jewelry /types/ 
 	def shopping_navbar
-		@shopping_navbar = Item.all.collect{|x| x.category.downcase}.uniq
+		@shopping_navbar ||= @shopping_navbar = Item.all.collect{|x| x.category.downcase}.uniq
 	end
   def initialize_cart
 		if session[:cart_id]

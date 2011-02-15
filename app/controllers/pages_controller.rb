@@ -14,7 +14,9 @@ class PagesController < ApplicationController
   :plugins => %w{contextmenu paste}},
   :only => [:new, :edit, :show, :index])
 
-  before_filter :require_user  
+  before_filter do |controller|
+  	controller.require_user(4)
+  end  
   def index
     @pages = Page.all
 

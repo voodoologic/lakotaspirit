@@ -1,4 +1,8 @@
-class Seller::OrderController < ApplicationController
+class Seller::OrdersController < ApplicationController
+
+	before_filter do |controller|
+ 		controller.require_user(4)
+	end
   def index
   #if then statement for user goes here.  Based on order_items -- worst comment evah
     @orders = Order.find_all_by_user_id(@current_user.id)

@@ -27,11 +27,9 @@ module ApplicationHelper
 				{:href => url_for(:controller => "cart",
 										:action => "clear")}
 	end
-	def authorization_check(access_level)
-		@authorization_level_test = access_level 
-		unless authorization_level(@authorization_level_test)
-			flash[:notice] = "You do not have privilages to access that page"
-			redirect_to root_url
+	def authorziation_level(auth_level)
+		unless @current_user && @current_user.user_level >= auth_level
+		return false 
 		end
 	end
 

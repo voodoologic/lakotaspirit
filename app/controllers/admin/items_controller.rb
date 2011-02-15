@@ -1,7 +1,9 @@
 class Admin::ItemsController < ApplicationController
   # GET /items
   # GET /items.xml
-before_filter :require_user
+before_filter do |controller|
+ controller.require_user(4)
+end
 #authorization level needs to be higher here.
   def index
     @items = Item.all()

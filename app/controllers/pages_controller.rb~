@@ -1,9 +1,11 @@
 class PagesController < ApplicationController
   # GET /pages
   # GET /pages.xml
-  uses_tiny_mce
+  
 
-  before_filter :require_user  
+  before_filter do |controller|
+  	controller.require_user(4)
+  end  
   def index
     @pages = Page.all
 
