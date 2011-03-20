@@ -1,3 +1,0 @@
-<strong>Please configm adding <em><%= @item.title %></em>
-to your shopping cart.</strong>
-<%= button_to "Confirm", :action => "add", :id => params[:id] %>

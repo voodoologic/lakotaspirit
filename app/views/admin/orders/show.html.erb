@@ -1,2 +1,38 @@
-<h1>Admin::Order#show</h1>
-<p>Find me in app/views/admin/order/show.html.erb</p>
+<h1>Order dashboard</h1>
+
+<h2> Order total: $ <%= @order.total %> </h2>
+<p><%= render :partial => 'navigation' %></p>
+
+<h2>Contact Information</h2>
+ <d1>
+ 	<dt>ID</dt>
+ 	<dt><%= @order.id %></dt>
+ 	<dt>Email</dt>
+ 	<dd><%= @order.email %></dd>
+ 	<dt>Phone number</dt>
+ 	<dd><%= @order.phone_number %></dd>
+ </d1>
+ <h2>Shipping Address</h2>
+ <d1>
+ 	<dt>First Name</dt>
+ 	<dd><%= @order.ship_to_first_name %></dd>
+ 	<dt>Last Name</dt>
+ 	<dd><%= @order.ship_to_last_name %></dd>
+ 	<dt>Address</dt>
+ 	<dd><%= @order.ship_to_address %></dd>
+ 	<dt>City</dt>
+ 	<dd><%= @order.ship_to_city %></dd>
+ 	<dt>Postal/Zip</dt>
+ 	<dd><%= @order.ship_to_postal_code %></dd>
+ 	<dt>Country</dt>
+ 	<dd><%= @order.ship_to_country %></dd>
+</d1>
+
+<h2>Order Details</h2>
+<% for item in @order.items %>
+	<%= link_to item.title, :action => "show", :controller => "browse", :id => item %>
+	$<%= item.price * item.quantity %><br/>
+<% end %>
+<p>
+	<%= button_to "Close Order", :action => 'close', :id => @order unless @order.status == "closed" %>
+</p>

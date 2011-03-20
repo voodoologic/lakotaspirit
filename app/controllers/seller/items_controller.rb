@@ -34,7 +34,7 @@ class Seller::ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        flash[:notice] = 'Item was successfully created.'
+        flash[:notice] = 'Item has been submitted for approval.'
         format.html { redirect_to(@item) }
         format.xml  { render :xml => @item, :status => :created, :location => @item }
       else

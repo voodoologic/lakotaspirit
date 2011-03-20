@@ -3,12 +3,7 @@
 <%- end -%>
 <br/>
 <h3>Your Shopping Cart</h3>
-<p>
-		<strong>
-		<%= link_to "Proceed to Checkout", :controller => 'checkout' unless controller.controller_name == 'checkout' %>
-		<%= link_to "Alternate Checkout", @cart.paypal_url(root_path) %>
-		</strong> 
-	</p>
+
 <ul>
 	<% for jewelry in @cart.cart_items %>
 	<li id="cart_item_<%= jewelry.item.id %>">
@@ -31,3 +26,11 @@
 	</p>
 	
 	<% end %>
+	<p>
+		<%= link_to "Proceed to Checkout", :controller => 'checkout' unless controller.controller_name == 'checkout' %>
+		<% form_tag APP_CONFIG[:paypal_url] do %>
+			<%= hidden_field_tag :cmd, "_s-xclick" %>
+			<%= hidden_field_tag :encrypted, @cart.paypal_encrypted(items_url, payment_notifications_url(:secret => APP_CONFIG[:paypal_secret])) %>
+			<p><%= submit_tag "Checkout" %></p>
+		<% end %> 
+	</p>
