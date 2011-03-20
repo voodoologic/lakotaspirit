@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file
 ENV['GEM_PATH'] = '/home2/akamados/ruby/.gems:/usr/lib/ruby/gems/1.8'
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.10' unless defined? RAILS_GEM_VERSION
 #require 'rubygems'
 #require 'authlogic'
 # Bootstrap the Rails environment, frameworks, and default configuration
@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
 	config.gem 'paperclip'
 
-	config.gem "authlogic", :version => "2.1.5"
+	config.gem "authlogic", :version => "2.1.6"
 	config.gem 'tiny_mce'
 	config.gem 'will_paginate'
 	config.gem 'paypal'
