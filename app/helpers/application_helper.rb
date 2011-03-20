@@ -27,9 +27,11 @@ module ApplicationHelper
 				{:href => url_for(:controller => "cart",
 										:action => "clear")}
 	end
-	def authorziation_level(auth_level)
-		unless @current_user && @current_user.user_level >= auth_level
-			return false 
+	def authorization_check(auth_level)
+		if @current_user && @current_user.user_level >= auth_level
+		return true		
+		else
+		return false
 		end
 	end
 

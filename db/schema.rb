@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100928065302) do
+ActiveRecord::Schema.define(:version => 20110306194740) do
 
   create_table "cart_items", :force => true do |t|
     t.integer  "item_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20100928065302) do
   create_table "carts", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "purchased_at"
   end
 
   create_table "items", :force => true do |t|
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20100928065302) do
   end
 
   create_table "order_items", :force => true do |t|
-    t.integer  "book_id"
+    t.integer  "item_id"
     t.integer  "order_id"
     t.float    "price"
     t.integer  "amount"
@@ -67,6 +68,9 @@ ActiveRecord::Schema.define(:version => 20100928065302) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "params"
+    t.integer  "paypal_invoice"
+    t.string   "state"
   end
 
   create_table "pages", :force => true do |t|

@@ -19,13 +19,13 @@
 		</div>
 				
 				<!--<img src="/images/lakotaspirit-banner.png" style="float:right; z-index:-1"/>-->
-		<div id="navbar"  >
-					<ul>
+		<div id="navbar" style="margin: auto" >
+					<ul >
 						<% @tabs.each do |page| -%>
 							<li><%= link_to page.title, view_page_path(page.name) %></li>
 						<% end -%>
 						<!--#creates admin/seller user link-->		
-							<% unless @current_user && @current_user.user_level < 3 %>
+							<% if @current_user  %>
 									<% if @current_user.user_level >= 4 %>								
 										<li>
 											<%= link_to "admin", admin_path %>
@@ -63,8 +63,7 @@
 			<h3 id="flash">
 				<%= flash[:notice] %>
 			</h3>
-			<%= debug params %> 
-			<%= if @current_user then debug @current_user.username else "<code>no user logged in</code>" end%>
+			
 				<% if @cart.cart_items %>
 				<div id="shopping_cart">
 					<%= render :partial => "cart/cart" %>			
@@ -78,8 +77,10 @@
 		</div>
 
 		<div id='footer' class="threed">
-		<p>website comming soon.  Design by: <a href="http://douglasheadley.com">VoodooLogc</a></p>
+		<p>website comming soon.  Design by: <a href="http://douglasheadley.com">VoodooLogic</a></p>
 		</div>
+		<%= debug params %> 
+			<%= if @current_user then debug @current_user.username else "<code>no user logged in</code>" end%>
 		<script type="text/javascript">
 
   var _gaq = _gaq || [];

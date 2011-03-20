@@ -1,0 +1,17 @@
+development:
+  paypal_email: Seller_1286067248_biz@gmail.com
+  paypal_secret: bonk889
+  paypal_cert_id: GRAVTW2K87H68
+  paypal_url: "https://www.sandbox.paypal.com/cgi-bin/webscr"
+
+test:
+  paypal_email: Seller_1286067248_biz@gmail.com
+  paypal_secret: 
+  paypal_cert_id: 
+  paypal_url:
+
+production:
+  paypal_email: Seller_1286067248_biz@gmail.com
+  paypal_secret: 
+  paypal_cert_id: 
+  paypal_url: "https://www.sandbox.paypal.com/cgi-bin/webscr"

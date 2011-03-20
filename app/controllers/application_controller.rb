@@ -63,7 +63,7 @@ class ApplicationController < ActionController::Base
   def initialize_cart
 		if session[:cart_id]
 			@cart = Cart.find(session[:cart_id])
-			#session[:cart_id] = nil @cart.purchased_at
+			session[:cart_id] = nil if @cart.purchased_at
 		end
 		if session[:cart_id].nil?	
 			@cart = Cart.create

@@ -6,7 +6,7 @@ before_filter do |controller|
 end
 #authorization level needs to be higher here.
   def index
-    @items = Item.all()
+    @items = Item.all
   end
 
   # GET /items/1
@@ -30,6 +30,10 @@ end
 
   # POST /items
   # POST /items.xml
+  def approve
+  	item = Item.find_by_id(params[:id])
+  	item.approve
+  end
   def create
     @item = Item.new(params[:item])
 
