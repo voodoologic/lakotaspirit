@@ -129,9 +129,6 @@ class Order < ActiveRecord::Base
 			validates_length_of :ship_to_city, :in => 2..255
 			validates_length_of :ship_to_postal_code, :in => 2..255
 			validates_length_of :ship_to_country, :in => 2..255
-
-	end
-
 			validates_length_of :phone_number, :in => 7..20
 			validates_length_of :customer_ip, :in => 7..15
 			validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
