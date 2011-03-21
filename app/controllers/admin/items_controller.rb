@@ -1,10 +1,12 @@
 class Admin::ItemsController < ApplicationController
   # GET /items
   # GET /items.xml
-before_filter :require_user
+before_filter do |controller|
+ controller.require_user(4)
+end
 #authorization level needs to be higher here.
   def index
-    @items = Item.all()
+    @items = Item.all
   end
 
   # GET /items/1
@@ -28,6 +30,10 @@ before_filter :require_user
 
   # POST /items
   # POST /items.xml
+  def approve
+  	item = Item.find_by_id(params[:id])
+  	item.approve
+  end
   def create
     @item = Item.new(params[:item])
 

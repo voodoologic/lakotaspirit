@@ -14,6 +14,6 @@ before_filter :initialize_cart
   		@item = Item.find_by_id(params[:id])
   	end
   	def category
-  		@items = Item.find_all_by_category(params[:category])
+  		@items = Item.find_all_by_category(params[:category]).paginate( :page => params[:page], :per_page => 6)
   	end
 end

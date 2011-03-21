@@ -8,16 +8,21 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   map.resource :session
-  
+  map.resources :items, :member => { :approve => :post }  
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
   map.login 'login', :controller => 'user_sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.category 'browse/category/:category', :controller => "browse", :action => "category"   
+  map.category '/browse/category/:category', :controller => "browse", :action => "category"   
+  map.admin '/admin/index', :controller => "admin/orders", :action => "index"
+  map.seller '/seller/index', :controller => "seller/orders", :action => "index"
+  map.adminOrder '/admin/order', :controller => 'admin/orders', :action => "index"
+  map.adminItems '/admin/items', :controller => 'admin/items', :action => 'index'
+  #experimental 
 
 	#mapping new user since scaffold doesn't seem to be set up.
 	
-  map.resources :items
+
 
   # The priority is based upon order of creation: first created -> highest priority.
 

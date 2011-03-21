@@ -1,7 +1,9 @@
 class Seller::ItemsController < ApplicationController
   # GET /items
   # GET /items.xml
-before_filter :require_user
+	before_filter do |controller|
+		controller.require_user(4)
+	end
   def index
     @items = Item.find_all_by_user_id(@current_user.id)
   end
@@ -32,7 +34,7 @@ before_filter :require_user
 
     respond_to do |format|
       if @item.save
-        flash[:notice] = 'Item was successfully created.'
+        flash[:notice] = 'Item has been submitted for approval.'
         format.html { redirect_to(@item) }
         format.xml  { render :xml => @item, :status => :created, :location => @item }
       else

@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
   # GET /items
   # GET /items.xml
-  before_filter :require_user, :authorized?
-  ENV = 
+  before_filter do |controller|
+ 		controller.require_user(4)
+	end
   def index
     @items = Item.find_all_by_user_id(@current_user.id)
 
@@ -71,6 +72,12 @@ class ItemsController < ApplicationController
         format.xml  { render :xml => @item.errors, :status => :unprocessable_entity }
       end
     end
+   def approve
+   	@item = Item.find_by_id(params[:id])
+   	@item.update_attribute(:status, 2)
+   	flash[:notice] = "#{@item.title} is now approved for sale."
+   	redirect_to admin_path
+   end
   end
 
   # DELETE /items/1

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-	before_filter :require_user
-	
+before_filter do |controller|
+		controller.require_user(4)
+	end
   def new
     @user = User.new
   end
