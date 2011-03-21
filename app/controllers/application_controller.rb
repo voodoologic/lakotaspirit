@@ -40,6 +40,7 @@ class ApplicationController < ActionController::Base
 	end
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	def require_user
     unless current_user
       store_location
@@ -48,6 +49,10 @@ class ApplicationController < ActionController::Base
       return false
     end
   end 
+=======
+	
+
+>>>>>>> master
 =======
 	
 
