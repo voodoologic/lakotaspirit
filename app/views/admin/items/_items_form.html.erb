@@ -1,0 +1,65 @@
+<% form_for(@item, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <% if authorization_check(4) %>
+  <p>Seller: <br/>
+  		<%= f.collection_select :user_id, User.all,:id, :username %>
+  </p>
+  <% else %>
+  		<%= f.hidden_field :user_id, :value => @current_user.id %>
+  	<% end %>
+  <p> Current Image: <br/>
+  		<%= image_tag @item.photo.url(:medium) %>
+  </p>
+  <p>
+  		<%= f.label "upload image" %><br />
+  		<%= f.file_field :photo%>
+  </p>
+  <p>
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </p>
+  <p>
+    <%= f.label :weight %><br />
+    <%= f.text_field :weight %>
+  </p>
+  <p>
+    <%= f.label :dimension %><br />
+    <%= f.text_field :dimension %>
+  </p>
+  <p>
+  	<% if authorization_check(4) %>
+  		<%= f.label "Item status" %><br/>
+  		<%= f.select :status, drop_down_menu_list, :selected => @item.status%>
+  	<% else %>
+  		<% f.hidden_field :status, :value => 1 %>
+  	<% end %>
+  </p>
+  <p>
+    <%= f.label :short_description %><br />
+    <%= f.text_area :short_description %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <!--<p>
+    <%#= f.label :style_slightly_vary %><br />
+    <%#= f.check_box :style_slightly_vary %>
+  </p>
+  <p>
+  		<%#= f.label :item_quantity %><br/>
+  		<%#= f.text_field :quantity %>
+  </p>
+  <p>
+    <b><p>One of a kind?</p></b><br />
+    <%#= f.check_box :native_style %>
+  </p>-->
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
