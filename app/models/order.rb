@@ -34,25 +34,7 @@ class Order < ActiveRecord::Base
 		self.status = 'closed'
 		save!
 	end
-	#	def paypal_encrypted(return_url, notify_url)
-#		values = {
-#			:business => 'Seller_1286067248_biz@gmail.com',
-#			:cmd => '_cart',
-#			:upload => 1,
-#			:return_url => return_url,
-#			:invoice => id,
-#			:notify_url => notify_url,
-#			:cert_id => "GRAVTW2K87H68"
-#		}
-#		cart_items.each_with_index do |item, index|
-#			values.merge!({
-#			"amount_#{index+1}" => item.price,
-#			"item_name_#{index+1}" => item.item.title,
-#			"item_number_#{index+1}" => item.item.quantity 
-#			})
-#		end
-#		encrypt_for_paypal(values)
-#	end
+
 	def process_with_active_merchant
 		ActiveMerchant::Billing::Base.mode = :test
 		
