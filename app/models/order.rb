@@ -104,22 +104,22 @@ class Order < ActiveRecord::Base
 		self.status = "open" if self.status.blank?
 	end	
 
-			validates_size_of :order_items, :minimum => 1
-			validates_length_of :ship_to_first_name, :in => 2..255
-			validates_length_of :ship_to_last_name, :in => 2...255
-			validates_length_of :ship_to_address, :in => 2..255
-			validates_length_of :ship_to_city, :in => 2..255
-			validates_length_of :ship_to_postal_code, :in => 2..255
-			validates_length_of :ship_to_country, :in => 2..255
-			validates_length_of :phone_number, :in => 7..20
-			validates_length_of :customer_ip, :in => 7..15
-			validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
-			validates_inclusion_of :status, :in => %w(open precessed closed failed)
-			validates_inclusion_of :card_type, :in => ['Visa', 'MasterCard', 'Discover'], :on => :create
-			validates_length_of :card_number, :in => 13..19, :on => :create
-			validates_inclusion_of :card_expiration_month, :in => %w(1 2 3 4 5 6 7 8 9 10 11 12), :on => :create
-			validates_inclusion_of :card_expiration_year, :in => (Array(Time.now.year..Time.now.year + 6)), :on => :create
-			validates_inclusion_of :card_verification_value, :in => 3..4, :on => :create
+#			validates_size_of :order_items, :minimum => 1
+#			validates_length_of :ship_to_first_name, :in => 2..255
+#			validates_length_of :ship_to_last_name, :in => 2...255
+#			validates_length_of :ship_to_address, :in => 2..255
+#			validates_length_of :ship_to_city, :in => 2..255
+#			validates_length_of :ship_to_postal_code, :in => 2..255
+#			validates_length_of :ship_to_country, :in => 2..255
+#			validates_length_of :phone_number, :in => 7..20
+#			validates_length_of :customer_ip, :in => 7..15
+#			validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+#			validates_inclusion_of :status, :in => %w(open precessed closed failed)
+#			validates_inclusion_of :card_type, :in => ['Visa', 'MasterCard', 'Discover'], :on => :create
+#			validates_length_of :card_number, :in => 13..19, :on => :create
+#			validates_inclusion_of :card_expiration_month, :in => %w(1 2 3 4 5 6 7 8 9 10 11 12), :on => :create
+#			validates_inclusion_of :card_expiration_year, :in => (Array(Time.now.year..Time.now.year + 6)), :on => :create
+#			validates_inclusion_of :card_verification_value, :in => 3..4, :on => :create
 
 
 end
