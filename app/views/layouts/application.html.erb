@@ -3,23 +3,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title><%=  "Lakota Spirit"%></title>
+    <title><%= "Lakota Spirit"%></title>
 	  <%= include_tiny_mce_if_needed %>
 
     <%= yield :head %>
   	<%= javascript_include_tag :defaults %>
 
 	
-		<%= stylesheet_link_tag 'lakotaspirit' %>
+		<%= stylesheet_link_tag 'experimental' %>
   </head>
   <body>
-		<div id='header' class="threed">
-				<h1><%= link_to "Lakota Spirit", root_path %></h1>	
-				<h2>The place for authentic Native American Jewelry Art and Artifacts</h2>
-		</div>
-				
-				<!--<img src="/images/lakotaspirit-banner.png" style="float:right; z-index:-1"/>-->
-		<div id="navbar" style="margin: auto" >
+  	<div id="wrapper">
+		<header>
+				<h1><%= link_to "Lakota Spirit", root_path -%></h1>	
+				<h2>Authentic Native American Jewelry Art and Artifacts</h2>
+				<%= image_tag "LakotaSpirit.png", :width => "100%" %>
+		</header>
+		<nav>		
+		<div class="menu" >
 					<ul >
 						<% @tabs.each do |page| -%>
 							<li><%= link_to page.title, view_page_path(page.name) %></li>
@@ -47,37 +48,33 @@
 						</li>	
 					</ul>		
 		</div>
-		</div>
-		
-		<br/>
-		<!-- change this out for a new CSS ID -->
-		<div id="shopping" class="threed">
-			<ul>
-				<% @shopping_navbar.each do |jewelry| -%>
-					<li><%= link_to jewelry, category_path(jewelry) %></li>
-				<% end %>
-			</ul>		
-		</div>
-		<br/>
-		<div id='content' class="threed">
+		</nav>
+		<section id="main">
+		<!-- partial goes here -->
+		<%= render :partial => "sidebars/left_sidebar" %>
+		<section id="content">
 			<h3 id="flash">
 				<%= flash[:notice] %>
 			</h3>
 			
 				<% if @cart.cart_items %>
-				<div id="shopping_cart">
-					<%= render :partial => "cart/cart" %>			
-				</div>
+				
 				<%= drop_receiving_element("shoping_cart", :url => { :controller => "cart", :action => "add" }) %>
 			<% end %>
 
 			<%= yield %>
       	
       	<p style="clear:both"></p>
-		</div>
+		</section>
+		<%= render :partial => "sidebars/right_sidebar" %>
+		</section>
+		<footer>
+		<section id="footer-area">
 
-		<div id='footer' class="threed">
 		<p>website comming soon.  Design by: <a href="http://douglasheadley.com">VoodooLogic</a></p>
+				</section>
+		</footer>
+		
 		</div>
 		<%= debug params %> 
 			<%= if @current_user then debug @current_user.username else "<code>no user logged in</code>" end%>

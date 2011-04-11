@@ -34,25 +34,7 @@ class Order < ActiveRecord::Base
 		self.status = 'closed'
 		save!
 	end
-	#	def paypal_encrypted(return_url, notify_url)
-#		values = {
-#			:business => 'Seller_1286067248_biz@gmail.com',
-#			:cmd => '_cart',
-#			:upload => 1,
-#			:return_url => return_url,
-#			:invoice => id,
-#			:notify_url => notify_url,
-#			:cert_id => "GRAVTW2K87H68"
-#		}
-#		cart_items.each_with_index do |item, index|
-#			values.merge!({
-#			"amount_#{index+1}" => item.price,
-#			"item_name_#{index+1}" => item.item.title,
-#			"item_number_#{index+1}" => item.item.quantity 
-#			})
-#		end
-#		encrypt_for_paypal(values)
-#	end
+
 	def process_with_active_merchant
 		ActiveMerchant::Billing::Base.mode = :test
 		
@@ -122,22 +104,22 @@ class Order < ActiveRecord::Base
 		self.status = "open" if self.status.blank?
 	end	
 
-			validates_size_of :order_items, :minimum => 1
-			validates_length_of :ship_to_first_name, :in => 2..255
-			validates_length_of :ship_to_last_name, :in => 2...255
-			validates_length_of :ship_to_address, :in => 2..255
-			validates_length_of :ship_to_city, :in => 2..255
-			validates_length_of :ship_to_postal_code, :in => 2..255
-			validates_length_of :ship_to_country, :in => 2..255
-			validates_length_of :phone_number, :in => 7..20
-			validates_length_of :customer_ip, :in => 7..15
-			validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
-			validates_inclusion_of :status, :in => %w(open precessed closed failed)
-			validates_inclusion_of :card_type, :in => ['Visa', 'MasterCard', 'Discover'], :on => :create
-			validates_length_of :card_number, :in => 13..19, :on => :create
-			validates_inclusion_of :card_expiration_month, :in => %w(1 2 3 4 5 6 7 8 9 10 11 12), :on => :create
-			validates_inclusion_of :card_expiration_year, :in => (Array(Time.now.year..Time.now.year + 6)), :on => :create
-			validates_inclusion_of :card_verification_value, :in => 3..4, :on => :create
+#			validates_size_of :order_items, :minimum => 1
+#			validates_length_of :ship_to_first_name, :in => 2..255
+#			validates_length_of :ship_to_last_name, :in => 2...255
+#			validates_length_of :ship_to_address, :in => 2..255
+#			validates_length_of :ship_to_city, :in => 2..255
+#			validates_length_of :ship_to_postal_code, :in => 2..255
+#			validates_length_of :ship_to_country, :in => 2..255
+#			validates_length_of :phone_number, :in => 7..20
+#			validates_length_of :customer_ip, :in => 7..15
+#			validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+#			validates_inclusion_of :status, :in => %w(open precessed closed failed)
+#			validates_inclusion_of :card_type, :in => ['Visa', 'MasterCard', 'Discover'], :on => :create
+#			validates_length_of :card_number, :in => 13..19, :on => :create
+#			validates_inclusion_of :card_expiration_month, :in => %w(1 2 3 4 5 6 7 8 9 10 11 12), :on => :create
+#			validates_inclusion_of :card_expiration_year, :in => (Array(Time.now.year..Time.now.year + 6)), :on => :create
+#			validates_inclusion_of :card_verification_value, :in => 3..4, :on => :create
 
 
 end

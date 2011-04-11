@@ -2,6 +2,7 @@ class BrowseController < ApplicationController
 before_filter :initialize_cart
   def index
       @items = Item.search(params[:search], params[:page])
+      @users = User.all
 
 
     respond_to do |format|
