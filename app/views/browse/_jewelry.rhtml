@@ -6,16 +6,9 @@
  	</div>
  	<dt><%= link_to item.title, :action => "show", :id => item -%></dt>
  	<p><b>dimensions: </b><%= item.dimension -%></p>
- 	<p><b>price: </b>
-
- 		<%= sprintf("%0.2f", item.price) -%>
-
- 		<p>
-			<strong>
-				<%= add_item_link("add", item) -%>
-			</strong>		
-		</p>	
- </div>
-
+ 	<p><b>price: </b>	<%= sprintf("%0.2f", item.price) -%>
+ 	<p><strong><%= add_item_link("add", item) -%></strong></p>	
+</div>
+<hr/>
 <% end %>
 

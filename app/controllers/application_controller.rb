@@ -8,8 +8,13 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 #require 'restful_authentication'
 
+<<<<<<< HEAD
 	helper_method :current_user, :authorized
 	before_filter :get_pages_for_tabs, :initialize_cart, :shopping_navbar
+=======
+	helper_method :current_user, :authorization_level
+	before_filter :get_pages_for_tabs, :initialize_cart, :shopping_navbar, :artists
+>>>>>>> master
 	def require_user(auth_level)
     unless current_user && authorization_level(auth_level)
       store_location
@@ -77,7 +82,9 @@ class ApplicationController < ActionController::Base
 			session[:cart_id] = @cart.id
 		end
 		#	@cart
-	
+	def artists
+		@users ||= User.all
+	end
 	  
   end
 
