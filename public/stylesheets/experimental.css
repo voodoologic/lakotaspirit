@@ -260,4 +260,50 @@ footer p {
 margin-top: -15px;
 color: #faf0e6;
 }
+/* table */
+
+table {
+/* border-radius */
+/* box-shadow */
+ -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+ -moz-box-shadow: rgba(0,0,0,0.2) 4px 3px 3px;
+ box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+ background-color: #E7FFFF;
+}
+th
+{
+	padding: 8px;
+	font-weight: normal;
+	font-size: 1em;
+	color: white;
+	background: #48607c;
+	/* border-radius */
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ border-radius: 5px;
+}
+tbody tr td
+{
+	padding: 8px;
+	<!--background: #e8edff;-->
+	background: #347867;
+	font-size: .8em;
+	border-top: 1px solid #fff;
+	color: #669;
+	 background-color: #E7FFFF;
+
+}
+tbody tr:hover td
+{
+	background: #98b3ce;
+}
+/* this is the floats */
+.right{
+	float: right;
+}
+.left{
+	float: left;
+	
+	
+}
 
