@@ -5,4 +5,8 @@ config/database.yml
 config/database.yml~
 db/*.sqlite3
 *~
+<<<<<<< HEAD
 *.swp
+=======
+vendor/gems/authlogic-2.1.5/.gitignore
+>>>>>>> 4d2e18054302ab9f177aa8eca730c5a22258135c
