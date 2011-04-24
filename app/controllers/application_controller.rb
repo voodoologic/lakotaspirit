@@ -13,13 +13,13 @@ class ApplicationController < ActionController::Base
 	before_filter :get_pages_for_tabs, :initialize_cart, :shopping_navbar, :artists
 
 	def require_user(auth_level)
-    unless current_user && authorization_level(auth_level)
-      store_location
-      flash[:notice] = "You must be logged in to access this page"
-      redirect_to new_user_session_url
-      return false
-    end
-  end 
+    	unless current_user && authorization_level(auth_level)
+	store_location
+	flash[:notice] = "You must be logged in to access this page"
+	redirect_to new_user_session_url
+	return false
+	end
+	end 
 	def authorization_level(auth_level)
 		if @current_user && @current_user.user_level >= auth_level
 		return true
@@ -40,15 +40,6 @@ class ApplicationController < ActionController::Base
 		return @current_user if defined?(@current_user)
 		@current_user = current_user_session && current_user_session.record
 	end
-	
-	def require_user
-    unless current_user
-      store_location
-      flash[:notice] = "You must be logged in to access this page"
-      redirect_to new_user_session_url
-      return false
-    end
-  end 
 
   def store_location
   	session[:return_to] =

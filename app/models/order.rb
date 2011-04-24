@@ -4,8 +4,6 @@ class Order < ActiveRecord::Base
 	before_validation :set_status
 	has_many :order_items
 	has_many :items, :through => :order_items
-
-
 	
 	#named scope methods
 	named_scope :completed, :conditions => { :status => "processed" }

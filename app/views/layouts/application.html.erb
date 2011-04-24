@@ -6,11 +6,11 @@
     <title><%= "Lakota Spirit"%></title>
 	  <%= include_tiny_mce_if_needed %>
 
-    <%= yield :head %>
   	<%= javascript_include_tag :defaults %>
 
 	
 		<%= stylesheet_link_tag 'experimental' %>
+    <%= yield :head %>
   </head>
   <body>
   	<div id="wrapper">
@@ -51,7 +51,9 @@
 		</nav>
 		<section id="main">
 		<!-- partial goes here -->
+		<% if @current_user && @current_user.user_level == 3 || @current_user && @current_user.id == 1 %>
 		<%= render :partial => "sidebars/left_sidebar" %>
+		<% end %>
 		<section id="content">
 			<h3 id="flash">
 				<%= flash[:notice] %>
@@ -66,7 +68,10 @@
       	
       	<p style="clear:both"></p>
 		</section>
+
+		<% if @current_user && @current_user.user_level == 3 || @current_user && @current_user.id == 1 %>
 		<%= render :partial => "sidebars/right_sidebar" %>
+		<% end %>
 		</section>
 		<footer>
 		<section id="footer-area">

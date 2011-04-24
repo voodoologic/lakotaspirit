@@ -3,9 +3,9 @@
   <%=h @item.title %>
 </p>
  	<b>Photo:</b>
-			<%= content_tag(:div, image_tag(@item.photo.url(:large))) %>
+			<%#= content_tag(:div, image_tag(@item.photo.url(:large))) %>
 			<%= content_tag(:div, image_tag( @item.photo.url(:medium))) %>
-			<%= content_tag(:div, image_tag( @item.photo.url(:small))) %>
+			<%#= content_tag(:div, image_tag( @item.photo.url(:small))) %>
 <p>
   <b>Type:</b>
   <%=h @item.category %>

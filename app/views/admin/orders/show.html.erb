@@ -1,3 +1,6 @@
+	<% content_for :head do %>
+	<%= stylesheet_link_tag "admin" %> 
+	<% end %> 
 <h1>Order dashboard</h1>
 
 <h2> Order total: $ <%= @order.total %> </h2>
