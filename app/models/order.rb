@@ -103,7 +103,7 @@ class Order < ActiveRecord::Base
 	def set_status
 		self.status = "open" if self.status.blank?
 	end	
-
+def validations
 #			validates_size_of :order_items, :minimum => 1
 #			validates_length_of :ship_to_first_name, :in => 2..255
 #			validates_length_of :ship_to_last_name, :in => 2...255
@@ -120,6 +120,6 @@ class Order < ActiveRecord::Base
 #			validates_inclusion_of :card_expiration_month, :in => %w(1 2 3 4 5 6 7 8 9 10 11 12), :on => :create
 #			validates_inclusion_of :card_expiration_year, :in => (Array(Time.now.year..Time.now.year + 6)), :on => :create
 #			validates_inclusion_of :card_verification_value, :in => 3..4, :on => :create
-
+end
 
 end
