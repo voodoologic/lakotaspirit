@@ -2,8 +2,14 @@
 	<%= stylesheet_link_tag "admin" %> 
 	<% end %> 
 <h1>Dashboard</h1>
+<h2>Welcome to the adminstration dashboard</h2>
+<h3>review/edit/delete:</h3>
+<%= link_to "Orders", :controller => "admin/orders", :action => "index" %> | 
+<%= link_to "Items", :controller => "admin/items", :action => "index" %> |
+<%= link_to "pages", pages_path %> 
 
-<%= link_to "Orders", :controller => "admin/orders", :action => "index" %> | <%= link_to "Items", :controller => "admin/items", :action => "index" %> 
+<hr/>
+
 <h1>Orders</h1>
 
 <%= render :partial => 'navigation' %>

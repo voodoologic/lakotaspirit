@@ -1,42 +1,53 @@
 	<% content_for :head do %>
 	<%= stylesheet_link_tag "admin" %> 
 	<% end %> 
+
+<%= link_to "Orders", :controller => "admin/orders", :action => "index" %> | 
+<%= link_to "Items", :controller => "admin/items", :action => "index" %> |
+<%= link_to "pages", pages_path %> 
+
 <h1>Order dashboard</h1>
 
 <h2> Order total: $ <%= @order.total %> </h2>
-<p><%= render :partial => 'navigation' %></p>
 
 <h2>Contact Information</h2>
  <dl>
- 	<dt>ID</dt>
- 	<dt><%= @order.id %></dt>
- 	<dt>Email</dt>
+ 	<dt>Order ID:</dt>
+ 	<dd><%= @order.id %></dd>
+ 	<dt>Buyer email:</dt>
  	<dd><%= @order.email %></dd>
- 	<dt>Phone number</dt>
+ 	<dt>Phone number:</dt>
  	<dd><%= @order.phone_number %></dd>
  </dl>
  <h2>Shipping Address</h2>
  <dl>
- 	<dt>First Name</dt>
- 	<dd><%= @order.ship_to_first_name %></dd>
- 	<dt>Last Name</dt>
- 	<dd><%= @order.ship_to_last_name %></dd>
- 	<dt>Address</dt>
+ 	<dt>Ship To:</dt>
+ 	<dd><%= @order.ship_to_first_name %> <%= @order.ship_to_last_name %></dd>
+ 	<dt>Address:</dt>
  	<dd><%= @order.ship_to_address %></dd>
- 	<dt>City</dt>
+ 	<dt>City:</dt>
  	<dd><%= @order.ship_to_city %></dd>
- 	<dt>Postal/Zip</dt>
+ 	<dt>Postal/Zip:</dt>
  	<dd><%= @order.ship_to_postal_code %></dd>
- 	<dt>Country</dt>
+ 	<dt>Country:</dt>
  	<dd><%= @order.ship_to_country %></dd>
 </dl>
 
 <h2>Order Details</h2>
-<% for item in @order.items %>
-	<%= link_to item.title, :action => "show", :controller => "browse", :id => item %>
-	$<%= item.price * item.quantity %><br/>
-	<%= item_status(item.status) %><br/>
-<% end %>
+<table>
+	<tr>
+		<th>Title:</th>
+		<th>Total: (minus shiping/tax)</th>
+		<th>Status</th> 
+	</tr>
+	<% for item in @order.items %>
+		<tr>
+		<td><%= link_to item.title, :action => "show", :controller => "../browse", :id => item %></td>
+		<td>$<%= item.price * item.quantity %></td>
+		<td><%= item_status(item.status) %></td> 
+	</tr>
+	<% end %>
+</table>
 <p>
 	<%= button_to "Close Order", :action => 'close', :id => @order unless @order.status == "closed" %>
 </p>

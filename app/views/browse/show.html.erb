@@ -5,7 +5,6 @@
 		<script type="text/JavaScript" src="/javascripts/cloud-zoom.1.0.2.min.js"></script>
 <% end %>
 <p>
-  <b>Title:</b>
   <big style="font-size: 24px"><%=h @item.title %></big>
 </p>
 	<%#= content_tag(:div, image_tag( @item.photo.url(:medium)), :class => "left") %>
@@ -18,7 +17,12 @@
 
 <p>
   <b>Description:</b>
-  <%=h @item.short_description %>
+  <% unless @item.short_description.blank? %>
+	<%=  @item.short_description %>
+ <% else %>
+	<p>"Contact Wolf at oglala@yahoo.com" </p>
+ <% end %>
+
 </p>
 
 <p>
@@ -33,7 +37,7 @@
 
 <p>
 		<strong>
-			<%= add_item_link("add to shopping cart", @item.id) -%>
+			<%= add_item_link("add to cart", @item.id) -%>
 		</strong>		
 </p>	
 
@@ -43,14 +47,14 @@
   <%=h @item.price %>
 </p>
 
-<p>
+<!--<p>
   <b>Style slightly vary:</b>
-  <%=h @item.style_slightly_vary %>
-</p>
+  <%#=h @item.style_slightly_vary %>
+</p>-->
 
-<p>
+<!--<p>
   <b>Native style:</b>
-  <%=h @item.native_style %>
-</p>
+  <%#=h @item.native_style %>
+</p>-->
 
 </div>
