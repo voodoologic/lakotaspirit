@@ -51,7 +51,7 @@
 		</nav>
 		<section id="main">
 		<!-- partial goes here -->
-		<% if @current_user && @current_user.user_level == 3 || @current_user && @current_user.id == 1 %>
+		<% unless @current_user && @current_user.user_level >= 3  %>
 		<%= render :partial => "sidebars/left_sidebar" %>
 		<% end %>
 		<section id="content">
@@ -69,7 +69,7 @@
       	<p style="clear:both"></p>
 		</section>
 
-		<% if @current_user && @current_user.user_level == 3 || @current_user && @current_user.id == 1 %>
+		<% unless @current_user && @current_user.user_level >= 3  %>
 		<%= render :partial => "sidebars/right_sidebar" %>
 		<% end %>
 		</section>
