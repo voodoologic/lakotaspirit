@@ -10,7 +10,8 @@ validates_presence_of :category
 validates_presence_of :short_description
 validates_attachment_presence :photo
 has_attached_file :photo, :styles => { :small => "150x150>" , :medium => "300x300>", :large => "640x480>", :thumb => "50x50#"},
-                  :url  => "/assets/products/:id/:style/:basename.:extension"
+                  :url  => "/assets/products/:id/:style/:basename.:extension",
+		  :default_url => "assets/missing/:style/missing2.jpg"
 #this should change to normal 
 def self.search(search, page)
   paginate :per_page => 6, :page => page,
