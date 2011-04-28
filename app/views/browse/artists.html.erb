@@ -1,0 +1,11 @@
+<h1><%= @user.full_name %></h1>
+<%= image_tag @user.photo(:medium), :alt => "#{@user.full_name}" %> 
+<h2>Biography</h2>
+<%= @user.bio %>
+<hr/>
+<%# for item in @items %>
+  <%#= item.title %>
+  <%#= item.photo(:medium) %>
+<%# end %>
+<%= render :partial => "jewelry" %>
+	
