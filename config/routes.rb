@@ -14,7 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.category '/browse/category/:category', :controller => "browse", :action => "category"   
-  map.artist '/browse/artists/:id', :controller => "browse", :action => "artists" 
+  map.artist '/browse/artists/:url_full_name', :controller => "browse", :action => "artists" 
   map.admin '/admin/index', :controller => "admin/orders", :action => "index"
   map.seller '/seller/index', :controller => "seller/orders", :action => "index"
   map.adminOrder '/admin/order', :controller => 'admin/orders', :action => "index"

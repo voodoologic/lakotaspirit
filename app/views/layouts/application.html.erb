@@ -23,7 +23,7 @@
 		<div class="menu" >
 					<ul >
 						<% @tabs.each do |page| -%>
-							<li><%= link_to page.title, view_page_path(page.name) %></li>
+							<li><%= link_to page.title.capitalize, view_page_path(page.name) %></li>
 						<% end -%>
 						<!--#creates admin/seller user link-->		
 							<% if @current_user  %>

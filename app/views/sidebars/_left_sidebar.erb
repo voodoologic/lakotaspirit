@@ -11,7 +11,7 @@
 					<ul>
 						<% @users.each do |artist| %> 
 						<li>
-						<%= link_to artist.full_name, artist_path(artist) %>
+						<%= link_to artist.full_name, [artist.first_name,  artist.last_name].join("_") %>
 						</li>
 						<% end %>
 					</ul>
