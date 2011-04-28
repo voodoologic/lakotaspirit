@@ -18,7 +18,8 @@ before_filter :initialize_cart
   		@items = Item.find_all_by_category(params[:category]).paginate( :page => params[:page], :per_page => 6)
   	end
   def artists
-    @artist = User.find_by_id(params[:id])
+    @user = User.find_by_id(params[:id])
+    @users = User.all
     @items = Item.find_all_by_user_id(params[:id])
   end
 end
