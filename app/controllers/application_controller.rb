@@ -70,7 +70,7 @@ class ApplicationController < ActionController::Base
 		end
 		#	@cart
 	def artists
-		@users ||= User.all
+		@artists ||= User.find_all_by_user_level(3) 
 	end
 	  
   end
