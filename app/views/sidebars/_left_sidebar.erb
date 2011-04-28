@@ -9,9 +9,9 @@
 					
 				<h3>Artists</h3>
 					<ul>
-						<% @users.each do |artist| %> 
+						<% @users.each do |user| %> 
 						<li>
-						<%= link_to artist.full_name, [artist.first_name,  artist.last_name].join("_") %>
+						<%= link_to user.full_name, artist_path([user.first_name,  user.last_name].join("_")) %>
 						</li>
 						<% end %>
 					</ul>

@@ -34,6 +34,12 @@ module ApplicationHelper
 		return false
 		end
 	end
+	def get_user_from_url(url_full_name)
+		first_last_array = url_full_name.split("_")
+		first_name = first_last_array[0] 
+		last_name = first_last_array[1] 
+		@user = User.find(:first, :conditions => {:first_name => first_name, :last_name => last_name})
+	end           
 
 
 end
