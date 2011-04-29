@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
 	named_scope :completed, :conditions => { :status => "processed" }
 	named_scope :failed, :conditions => { :status => "failed" }
 	named_scope :open, :conditions => { :status => "open" }
-	named_scope :closed, :conditions => { :status => "close" }
+	named_scope :closed, :conditions => { :status => "closed" }
 	def open
 		self.status == 'open'
 		save!	
@@ -24,14 +24,14 @@ class Order < ActiveRecord::Base
 	
 		end
 		save!
-		self.status == 'processed'
+		self.status = 'processed'
 	end
 	
 	def close
 		self.status = 'closed'
 		save!
 	end
-
+	
 	def process_with_active_merchant
 		ActiveMerchant::Billing::Base.mode = :test
 		

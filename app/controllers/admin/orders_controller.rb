@@ -10,8 +10,9 @@ protect_from_forgery :only => [:create, :update, :destroy]
 	 		if params[:status]
 	 		 @orders = Order.find_all_by_status(params[:status]) 
 			end
+			@open_orders = Order.open.flatten
 			@items = Item.all
-		
+			@undelivered_items = order_items_paid_but_undelivered(@open_orders)
 		end
 		
 		def show
@@ -31,4 +32,17 @@ protect_from_forgery :only => [:create, :update, :destroy]
 				Item.find_by_id(item).update_attribute(:status, 4)
 			end
 		end
+		private
+	  def order_items_paid_but_undelivered(open_orders)
+	  undelivered_items = []
+	    undelivered_items = open_orders.collect{|orders| orders.order_items}.flatten
+	    undelivered_items = undelivered_items
+	    undelivered_items = undelivered_items.collect{|x| x.item}
+	  return undelivered_items 
+	  end
+	  def process_generic_item_info(order_item)
+	    items_array = [] 
+		order_item.collect{ |item| items_array << [ item.user.full_name, item.title, item.status, item.update_at]}
+	    return items_array
+	  end
 end
