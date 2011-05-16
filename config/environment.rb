@@ -1,8 +1,8 @@
 # Be sure to restart your server when you modify this file
 ENV['GEM_PATH'] = '/home2/akamados/ruby/.gems:/usr/lib/ruby/gems/1.8'
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.10' unless defined? RAILS_GEM_VERSION
-#require 'rubygems'
+# RAILS_GEM_VERSION = '2.3.10' unless defined? RAILS_GEM_VERSION
+require 'rubygems'
 #require 'authlogic'
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -35,7 +35,7 @@ Rails::Initializer.run do |config|
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
-	config.action_view.debug_rjs = true 
+	config.action_view.debug_rjs = false 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
@@ -46,4 +46,8 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+
+  # email 
+    config.action_mailer.delivery_method = :sendmail
+    config.action_mailer.raise_delivery_errors = true
 end
