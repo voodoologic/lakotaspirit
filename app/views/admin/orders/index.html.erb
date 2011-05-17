@@ -1,4 +1,4 @@
-	<% content_for :head do %>
+<% content_for :head do %>
 	<%= stylesheet_link_tag "admin" %> 
 	<% end %> 
 <h1>Dashboard</h1>
@@ -9,12 +9,12 @@
 <h1>Orders</h1>
 <h3>Orders report:</h3>
 <dt>
-  <dl>Total earned:</dl>
-  <dl>Total earned this week:</dl>
-  <dl>Total earned this month:</dl>
+  <dl>Total earned: <%= order_total(@orders) %> </dl>
+  <dl>Total earned this week: <%= order_total(@order_this_week) %></dl>
+  <dl>Total earned this month:<%= order_total(@order_this_month) %></dl>
   <dl>Unpaid vendors</dl> 
-  <dl>Open orders:</dl>
-  <dl>closed orders:</dl>
+  <dl>Open orders: <%= !@open_orders.blank? ? @open_orders.count : 0 %></dl>
+  <dl>closed orders: <%= !@closed_orders.blank? ? @closed_orders.count : 0 %></dl>
 </dt>
 <h3>Unfinished orders</h3>
 <table>
