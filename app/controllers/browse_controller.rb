@@ -1,7 +1,7 @@
 class BrowseController < ApplicationController
 before_filter :initialize_cart
   def index
-      @items = Item.search(params[:search], params[:page])
+      @items = Item.for_sale.search(params[:search], params[:page])
 
 
     respond_to do |format|

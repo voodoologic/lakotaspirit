@@ -4,7 +4,7 @@ class Order < ActiveRecord::Base
 	before_validation :set_status
 	has_many :order_items
 	has_many :items, :through => :order_items
-  # has_many :users, :through => :order_users
+  has_many :users, :through => :order_users
 	#named scope methods
 	named_scope :completed, :conditions => { :status => "processed" }
 	named_scope :failed, :conditions => { :status => "failed" }
@@ -13,6 +13,7 @@ class Order < ActiveRecord::Base
   #might need to changed the names below to "processed"
   named_scope :week_so_far, :conditions => { :status => "processed",  :created_at => (Time.now.beginning_of_week() - 1.day)..Time.now }
   named_scope :month_so_far, :conditions => { :status => "processed",  :created_at => (Time.now.beginning_of_month)..Time.now }
+  named_scope :for_seller, lambda {|*args|  {:joins => { :order_items => { :item => :user }}, :conditions =>  ["users.username = ?", args.first]} }
 	def open
 		self.status == 'open'
 		save!	
