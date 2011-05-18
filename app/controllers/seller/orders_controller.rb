@@ -7,9 +7,20 @@ protect_from_forgery :only => [:create, :update, :destroy]
 	end
   def index
   #if then statement for user goes here.  Based on order_items -- worst comment evah
-    @orders = Order.find_all_by_user_id(@current_user.id)
+    @orders = Order_all_by_user_id(@current_user.id)
+    @orders = Items.find_all_by_user_id(@current_user.id) 
   	@page_title = "Listing #{@status}"
   	
+	 if params[:status]
+      @orders = Order.find_all_by_status(params[:status]) 
+   end
+      @orders_this_week = Order.week_so_far
+      @orders_this_month = Order.month_so_far
+			@open_orders = Order.open.flatten[1..5]
+      @closed_orders = Order.closed
+			@items = Item.all[1...5]
+      
+			@undelivered_items = order_items_paid_but_undelivered(@open_orders)
   end
   
   # GET /orders/1
@@ -75,6 +86,9 @@ protect_from_forgery :only => [:create, :update, :destroy]
       format.html { redirect_to(orders_url) }
       format.xml  { head :ok }
     end
+  end
+  def orders_for_seller
+    
   end
 end
 

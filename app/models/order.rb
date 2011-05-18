@@ -4,11 +4,16 @@ class Order < ActiveRecord::Base
 	before_validation :set_status
 	has_many :order_items
 	has_many :items, :through => :order_items
+  has_many :users, :through => :order_users
 	#named scope methods
 	named_scope :completed, :conditions => { :status => "processed" }
 	named_scope :failed, :conditions => { :status => "failed" }
 	named_scope :open, :conditions => { :status => "open" }
 	named_scope :closed, :conditions => { :status => "closed" }
+  #might need to changed the names below to "processed"
+  named_scope :week_so_far, :conditions => { :status => "processed",  :created_at => (Time.now.beginning_of_week() - 1.day)..Time.now }
+  named_scope :month_so_far, :conditions => { :status => "processed",  :created_at => (Time.now.beginning_of_month)..Time.now }
+  named_scope :for_seller, lambda {|*args|  {:joins => { :order_items => { :item => :user }}, :conditions =>  ["users.username = ?", args.first]} }
 	def open
 		self.status == 'open'
 		save!	
@@ -25,6 +30,7 @@ class Order < ActiveRecord::Base
 		end
 		save!
 		self.status = 'processed'
+    order_items.each{|order_item| order_item.item.update_attribute(:status, 4)}
 	end
 	
 	def close
@@ -96,9 +102,9 @@ class Order < ActiveRecord::Base
 	def total
 		order_items.inject(0) {|sum, n| n.price * n.amount + sum}
 	end
-	protected
 	def set_status
 		self.status = "open" if self.status.blank?
+    #new order needs to change the status of each item.
 	end	
 def validations
 #			validates_size_of :order_items, :minimum => 1
