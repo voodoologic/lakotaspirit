@@ -2,7 +2,7 @@
 	<%= render :partial => "cart/cart_notice" -%>
 <%- end -%>
 <br/>
-<h3>Your Shopping Cart</h3>
+<%= image_tag ("cart.png"), { :style => "float:left" } %><h4>Your Shopping Cart</h4>
 
 <ul>
 	<% for jewelry in @cart.cart_items %>
@@ -31,6 +31,6 @@
 		<% form_tag APP_CONFIG[:paypal_url] do %>
 			<%= hidden_field_tag :cmd, "_s-xclick" %>
 			<%= hidden_field_tag :encrypted, @cart.paypal_encrypted(items_url, payment_notifications_url(:secret => APP_CONFIG[:paypal_secret])) %>
-			<p><%= submit_tag "Checkout" %></p>
+			<p><%= submit_tag "Paypal" %></p>
 		<% end %> 
 	</p>
