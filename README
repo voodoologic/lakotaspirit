@@ -9,4 +9,16 @@ It's not all that complete.  But I put it up on Github so that a potential emplo
 whatnot.  If you are looking to short cut your way into building an e-commerce solution site, I would make sure
 you already are familiar with rails before attempting to adopt this. 
 
-
+Some of the features I'd like to highlight: 
+* Robust ActiveMailer design to assist the sale of a dissiminated inventory
+* Zoomcloud jQuerry plugin.  The same one featured on Bannana Republic webpage.  
+* User interface designed for artists, not techies.
+* Administration dashboard that highlights incomplete orders and income earned.
+* Built to support a business model that pays web developer a percentage of sales
+* Instant Payment Notification with paypal.  Funds are approved then item is removed from marketplace.
+* Artist highlight: dynamically generated and SEO friendly URL that accesses artist bio.
+* Authorization system: nobody can mess with each other's stuff
+* smart use of partials: seller and admin sections don't have the sidebars or shopping cart.
+* WYSIWYG editing for administrator.
+* validations for adding new items
+* approval process for complete administration controll.
